@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>CampScout</h1>
+
+<div style='width: 95%; margin: 0 auto;'>
+  <div id="map" style='width: 95%; height: 600px; margin: 0 auto;'>
+<%= render "search_gmap" %>
+  </div>
+</div>
+<div class="col-md-10 col-md-offset-1">
+  <h2>
+    <%= "Camps Near: #{params[:search].titleize}" %>
+  </h2>
+  <table class="table table-striped table-hover">
+    <tbody>
+      <% @camps.each do |f| %>
+        <tr>
+          <td><%= link_to f.name, camp_path(f), method: "get" %></td>
+          <td><%= f.address %></td>
+          <td><%= f.name %></td>
+          <td><strong><%= f.distance.round(2) %></strong><%= "miles" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
