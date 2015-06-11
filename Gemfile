@@ -33,6 +33,8 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'newrelic_rpm'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
