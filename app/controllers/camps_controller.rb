@@ -13,10 +13,10 @@ class CampsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@all_camps) do |camp, marker|
           marker.lat camp.latitude
           marker.lng camp.longitude
-          marker.infowindow "<a href='/camps/"+"#{camp.name}, #{camp.address}</a>"
-          marker.json({ title: camp.name})
+          marker.infowindow "<a href='/camps/"+"#{camp.id}"+"'>#{camp.name}</a>"
+          marker.json({ title: camp.name, id: camp.id})
           marker.picture({
-         "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
+         "url" => "assets/camp.png",
          "width" =>  32,
          "height" => 32})
       end
@@ -29,8 +29,12 @@ class CampsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@camps) do |camp, marker|
           marker.lat camp.latitude
           marker.lng camp.longitude
-          marker.infowindow "<a href='/camps/"+"#{camp.name}, #{camp.address}</a>"
-          marker.json({ title: camp.name})
+          marker.infowindow "#{camp.name}"
+          marker.json({ title: camp.name, id: camp.id})
+          marker.picture({
+         "url" => "/assets/camp.png",
+         "width" =>  32,
+         "height" => 32})
         end
   end
 
@@ -97,7 +101,7 @@ def search
        # gflash notice: "Sorry! We couldn't find any farms within #{@distance} miles of #{@location}."
         redirect_to "/"
       else
-        search_gmap(@camps)
+        gmap(@camps)
         #create_markers
       end
     end
@@ -105,13 +109,17 @@ def search
   
 private
   # sets up the map hash for gmaps4rails
-  def search_gmap(camps)
+  def gmap(camps)
     @camps = camps
     @hash = Gmaps4rails.build_markers(@camps) do |camp, marker|
         marker.lat camp.latitude
         marker.lng camp.longitude
-        marker.infowindow "<a #{camp.id}"+"'>#{camp.name}, #{camp.address}</a>"
+        marker.infowindow "#{camp.name}, <br> #{camp.address}"
         marker.json({ title: camp.name, id: camp.id })
+        marker.picture({
+         "url" => "assets/camp.png",
+         "width" =>  32,
+         "height" => 32})
       end
     end
 

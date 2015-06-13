@@ -1,11 +1,4 @@
-<div style='width: 95%; margin: 0 auto;'>
-  <div id="map" style='width: 95%; height: 600px; margin: 0 auto;'>
-<%= render "gmap" %>
-  </div>
-
 <p id="Camps near by"><%= notice %></p>
-
-</div>
 
 <div>
 
@@ -26,12 +19,12 @@
 
 <p>
   <strong>Telephone:</strong>
-  <%= @camp.telephone %>
+  <a href=tel:<%= @camp.telephone %> name=tel:<%= @camp.telephone %> > <%= @camp.telephone %> </a>
 </p>
 
 <p>
   <strong>Website:</strong>
-  <%= @camp.website %>
+  <a href=<%= @camp.website %> ><%= @camp.website %></a>
 </p>
 
 <p>
