@@ -1,5 +1,6 @@
 <%= form_tag("/search", method: :get, class: " navbar-form") do  %>
-  <%= text_field_tag :search, params[:search], placeholder: "city, zip, address", class: "form-control" %>
-  <%= select_tag :miles, options_for_select([["within 10 miles", "10"], ["within 25 miles", "25"], ["within 50 miles", "50"]]), class: "form-control" %>
-  <%= submit_tag "Find Camps", name: nil, :class => "btn btn-info" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by City, Zip, or Address", class: "form-control" %>
+  <%= select_tag :miles, options_for_select([["Within 10 miles", "10"], ["Within 25 miles", "25"], ["Within 50 miles", "50"]]), class: "form-control" %>
+  <br>
+  <%= submit_tag "Find Camps", name: nil, :class => "btn btn-success" %>
 <% end %>

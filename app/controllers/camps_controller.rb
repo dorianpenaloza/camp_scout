@@ -16,7 +16,7 @@ class CampsController < ApplicationController
           marker.infowindow "<a href='/camps/"+"#{camp.id}"+"'>#{camp.name}</a>"
           marker.json({ title: camp.name, id: camp.id})
           marker.picture({
-         "url" => "assets/camp.png",
+         "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
          "width" =>  32,
          "height" => 32})
       end
@@ -32,7 +32,7 @@ class CampsController < ApplicationController
           marker.infowindow "#{camp.name}"
           marker.json({ title: camp.name, id: camp.id})
           marker.picture({
-         "url" => "/assets/camp.png",
+         "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
          "width" =>  32,
          "height" => 32})
         end
@@ -117,7 +117,7 @@ private
         marker.infowindow "#{camp.name}, <br> #{camp.address}"
         marker.json({ title: camp.name, id: camp.id })
         marker.picture({
-         "url" => "assets/camp.png",
+         "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
          "width" =>  32,
          "height" => 32})
       end
