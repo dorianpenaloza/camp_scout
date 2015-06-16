@@ -30,5 +30,16 @@
   <%= @camp.address %>
 </p>
 
+<p>
+
+<%= form_tag(method: "post") do %>
+
+<%= check_box_tag("compare", params[:id]) %>
+
+<%= submit_tag("Add to comparison cart") %>
+<% end %>
+
+</p>
+
 </div>
 

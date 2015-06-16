@@ -38,6 +38,20 @@ class CampsController < ApplicationController
         end
   end
 
+def compare
+   @camps = Camp.find(params[:id])
+   @hash = Gmaps4rails.build_markers(@camps) do |camp, marker|
+          marker.lat camp.latitude
+          marker.lng camp.longitude
+          marker.infowindow "#{camp.name}"
+          marker.json({ title: camp.name, id: camp.id})
+          marker.picture({
+         "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
+         "width" =>  32,
+         "height" => 32})
+        end
+end
+
   # GET /camps/new
   def new
     @camp = Camp.new
