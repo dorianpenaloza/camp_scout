@@ -1,5 +1,6 @@
-<div>
 
+<div>
+ <%# @camps.each do |camp| %>
 <p>
   <strong>Name:</strong>
   <%= @camp.name %>
@@ -32,11 +33,10 @@
 
 <p>
 
-<%= form_tag(method: "post") do %>
+<%= form_tag(action: "add_to_compare") do %>
+  <%= hidden_field :camp_id, value: @camp.id %>
 
-<%= check_box_tag("compare", params[:id]) %>
-
-<%= submit_tag("Add to comparison cart") %>
+<%= submit_tag "Add to comparison cart" %>
 <% end %>
 
 </p>

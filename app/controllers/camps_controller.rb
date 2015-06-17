@@ -1,5 +1,5 @@
 class CampsController < ApplicationController
-  before_action :set_camp, only: [:show, :edit, :update, :destroy]
+  before_action :set_camp, only: [:show, :edit, :update, :destroy, :add_to_compare]
 
   # GET /camps
   # GET /camps.json
@@ -8,19 +8,7 @@ class CampsController < ApplicationController
     create_markers
   end
 
-  def create_markers
-    @all_camps = Camp.all
-    @hash = Gmaps4rails.build_markers(@all_camps) do |camp, marker|
-          marker.lat camp.latitude
-          marker.lng camp.longitude
-          marker.infowindow "<a href='/camps/"+"#{camp.id}"+"'>#{camp.name}</a>"
-          marker.json({ title: camp.name, id: camp.id})
-          marker.picture({
-         "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
-         "width" =>  32,
-         "height" => 32})
-      end
-  end
+
 
  # GET /camps/1
   # GET /camps/1.json
@@ -38,9 +26,18 @@ class CampsController < ApplicationController
         end
   end
 
+
+def add_to_compare
+  session[:cart] << @camp.id
+
+
+  redirect_to '/compare'
+
+end
+
+
 def compare
-   @camps = Camp.find(params[:id])
-   @hash = Gmaps4rails.build_markers(@camps) do |camp, marker|
+   @hash = Gmaps4rails.build_markers(@cart.camps) do |camp, marker|
           marker.lat camp.latitude
           marker.lng camp.longitude
           marker.infowindow "#{camp.name}"
@@ -122,6 +119,22 @@ def search
   end
   
 private
+
+  def create_markers
+    @all_camps = Camp.all
+    @hash = Gmaps4rails.build_markers(@all_camps) do |camp, marker|
+          marker.lat camp.latitude
+          marker.lng camp.longitude
+          marker.infowindow "<a href='/camps/"+"#{camp.id}"+"'>#{camp.name}</a>"
+          marker.json({ title: camp.name, id: camp.id})
+          marker.picture({
+         "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
+         "width" =>  32,
+         "height" => 32})
+      end
+  end
+
+
   # sets up the map hash for gmaps4rails
   def gmap(camps)
     @camps = camps

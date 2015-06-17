@@ -1,5 +1,17 @@
-class SearchController < ApplicationController
+class CompareController < ApplicationController
   before_action :set_camp, only: [:show, :edit, :update, :destroy]
+
+
+  #def index
+   # @camps = session[:camps] || {} 
+  #end
+
+#def compare
+ # id = params[:id]
+  #camps = session[:camps] ||= {}
+  #camps[id] = (camps[id] || 0) + 1
+#end
+
 
   # GET /camps
   # GET /camps.json
