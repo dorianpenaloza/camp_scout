@@ -8,8 +8,6 @@ class CampsController < ApplicationController
     create_markers
   end
 
-
-
  # GET /camps/1
   # GET /camps/1.json
   def show
@@ -26,15 +24,10 @@ class CampsController < ApplicationController
         end
   end
 
-
 def add_to_compare
   session[:cart] << @camp.id
-
-
   redirect_to '/compare'
-
 end
-
 
 def compare
    @hash = Gmaps4rails.build_markers(@cart.camps) do |camp, marker|
@@ -98,7 +91,6 @@ end
     end
   end
 
-
 def search
     @location = params[:search]
     @distance = params[:miles]
@@ -134,7 +126,6 @@ private
       end
   end
 
-
   # sets up the map hash for gmaps4rails
   def gmap(camps)
     @camps = camps
@@ -149,7 +140,6 @@ private
          "height" => 32})
       end
     end
-
 
     # Use callbacks to share common setup or constraints between actions.
     def set_camp

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'camps#index'
-
+  # Redirect to the compare page
   get '/compare' => "camps#compare"
+  # Adds the ID of the camp you want to compare to `session[:cart]`
   post "/camps/compare/:id" => "camps#add_to_compare"
 
   # Example of regular route:
@@ -14,14 +15,6 @@ Rails.application.routes.draw do
    # get "application" => "camps#show"
   get "/search" => "camps#search"
 
-
-      # Add the ID of the camp you want to compare to `session[:cart]`
-      # Redirect to the compare page
-
-  #map.connect ":controller/:action/:id"
-  #match 'camps/:id', :controller => 'camps', :action => 'compare'
-  #match 'camps/:id', :to => 'camps#compare'
-  #post 'camps/:id', :to => 'camps#compare'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
