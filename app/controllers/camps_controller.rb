@@ -1,5 +1,5 @@
 class CampsController < ApplicationController
-  before_action :set_camp, only: [:show, :edit, :update, :destroy, :add_to_compare]
+  before_action :set_camp, only: [:show, :edit, :update, :destroy]
 
   # GET /camps
   # GET /camps.json
@@ -15,7 +15,7 @@ class CampsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@camps) do |camp, marker|
           marker.lat camp.latitude
           marker.lng camp.longitude
-          marker.infowindow "#{camp.name}"
+          marker.infowindow "<a href='/camps/"+"#{camp.id}"+"'>#{camp.name}</a>"
           marker.json({ title: camp.name, id: camp.id})
           marker.picture({
          "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
@@ -23,24 +23,6 @@ class CampsController < ApplicationController
          "height" => 32})
         end
   end
-
-def add_to_compare
-  session[:cart] << @camp.id
-  redirect_to '/compare'
-end
-
-def compare
-   @hash = Gmaps4rails.build_markers(@cart.camps) do |camp, marker|
-          marker.lat camp.latitude
-          marker.lng camp.longitude
-          marker.infowindow "#{camp.name}"
-          marker.json({ title: camp.name, id: camp.id})
-          marker.picture({
-         "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",
-         "width" =>  32,
-         "height" => 32})
-        end
-end
 
   # GET /camps/new
   def new
@@ -84,11 +66,12 @@ end
   # DELETE /camps/1
   # DELETE /camps/1.json
   def destroy
-    @camp.destroy
-    respond_to do |format|
-      format.html { redirect_to camps_url, notice: 'Camp was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @cart = Cart.find(session[:cart])
+    @cart.camps.destroy
+    #respond_to do |format|
+     # format.html { redirect_to camps_url, notice: 'Camp was successfully destroyed.' }
+      #format.json { head :no_content }
+    #end
   end
 
 def search
@@ -132,7 +115,7 @@ private
     @hash = Gmaps4rails.build_markers(@camps) do |camp, marker|
         marker.lat camp.latitude
         marker.lng camp.longitude
-        marker.infowindow "#{camp.name}, <br> #{camp.address}"
+        marker.infowindow "<a href='/camps/"+"#{camp.id}"+"'>#{camp.name}</a>, <br> #{camp.address}"
         marker.json({ title: camp.name, id: camp.id })
         marker.picture({
          "url" => "http://icons.iconarchive.com/icons/thehoth/seo/32/seo-web-code-icon.png",

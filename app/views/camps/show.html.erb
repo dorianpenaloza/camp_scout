@@ -1,44 +1,53 @@
 
-<div>
+  <section id="home" data-speed="4" data-type="background">
+  <h1 class="navbar-brand text-center"><%= link_to 'CampScout', root_path %></h1><br>
+  <div style='width: 95%; margin: 0 auto;'>
+    <div id="map" class="google-maps" style='width: 95%; height: 600px; margin: 0 auto; border-radius: 20px 20px;'>
+  <%= render "gmap" %>
+    </div>
+  </div>
+  <div class="text-center"><%= render "/layouts/search_bar" %></div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @camp.name %>
-</p>
+<div class="container">
+  <table class="row-fluid table table-striped table-hover">
+ <thead>
+    <tr>
+      <th class="col-md-1">Name</th>
+      <th class="col-md-1">Weeks</th>
+      <th class="col-md-1">Cost</th>
+      <th class="col-md-1">Telephone</th>
+      <th class="col-md-1">Website</th>
+      <th class="col-md-1">Address</th>
+ 
+    </tr>
+  </thead>
 
-<p>
-  <strong>Weeks:</strong>
-  <%= @camp.weeks %>
-</p>
+<tbody>
+<tr>
+<td class="col-md-1"><p><strong>Name:</strong><%= @camp.name %></p></td>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @camp.cost %>
-</p>
+<td class="col-md-1"><p><strong>Weeks:</strong><%= @camp.weeks %></p></td>
 
-<p>
-  <strong>Telephone:</strong>
-  <a href=tel:<%= @camp.telephone %> name=tel:<%= @camp.telephone %> > <%= @camp.telephone %> </a>
-</p>
+<td class="col-md-1"><p><strong>Cost:</strong><%= @camp.cost %></p></td>
 
-<p>
-  <strong>Website:</strong>
-  <a href=<%= @camp.website %> ><%= @camp.website %></a>
-</p>
+<td class="col-md-1"><p><strong>Telephone:</strong>
+<a href=tel:<%= @camp.telephone %> name=tel:<%= @camp.telephone %> > <%= @camp.telephone %></a>
+</p></td>
 
-<p>
-  <strong>Address:</strong>
-  <%= @camp.address %>
-</p>
+<td class="col-md-1"><p><strong>Website:</strong><a href=<%= @camp.website %> ><%= @camp.website %></a></p></td>
 
-<p>
-
-<%= form_tag(action: "add_to_compare") do %>
-  <%= hidden_field :camp_id, value: @camp.id %>
-<%= submit_tag "Add to comparison cart" %>
-<% end %>
-
-</p>
-
+<td class="col-md-1"><p><strong>Address:</strong><%= @camp.address %></p></td>
+</tr>
+</tbody>
+</table>
 </div>
+</div> 
 
+<span class="text-center">
+  <%= form_tag compares_path do %>
+  <%= hidden_field_tag :id, @camp.id %>
+  <%= submit_tag  "Add to comparison cart" %>
+<% end %>
+</span>
+
+</section>

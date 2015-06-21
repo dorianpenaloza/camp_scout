@@ -2,7 +2,7 @@
   <h1 class="navbar-brand text-center"><%= link_to 'CampScout', root_path %></h1><br>
   <div style='width: 95%; margin: 0 auto;'>
     <div id="map" class="google-maps" style='width: 95%; height: 600px; margin: 0 auto; border-radius: 20px 20px;'>
-  <%= render "gmap" %>
+  <%= render "camps/gmap" %>
     </div>
   </div>
   <div class="text-center"><%= render "/layouts/search_bar" %></div>
@@ -31,17 +31,18 @@
         <td><%= camp.cost %></td>
         <td><%#= link_to 'Destroy' camp action: "destroy" %></td>
         <td>
-          <%= form_tag(action: "remove_from_cart") do %>
-          <%= hidden_field :camp_id, value: camp.id %>
-          <%= submit_tag "Remove" %>
-          <% end %>
+          <%= link_to 'Destroy', compare_path(camp.id), method: :delete %>
+          <%#= form_tag(action: "destroy") do %>
+          <%#= hidden_field :camp_id, value: camp.id %>
+          <%#= submit_tag "Remove" %>
+          <%# end %>
         </td>   
     </tr>
     <% end %>
   </tbody>
   </table>  
-  <%= form_tag(action: "empty_cart") do %>
-    <%= submit_tag "Remove" %>
-  <% end %>
+  <%#= form_tag(action: "empty_cart") do %>
+    <%#= submit_tag "Remove" %>
+  <%# end %>
 </div>
 

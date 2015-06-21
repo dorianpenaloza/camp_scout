@@ -1,19 +1,28 @@
 Rails.application.routes.draw do
+
+  root 'camps#index'
+
   resources :camps
+  resources :compares
+  post "/compare/drop" => "compares#drop"
+  get "/search" => "camps#search"
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'camps#index'
   # Redirect to the compare page
-  get '/compare' => "camps#compare"
+  # get '/compare' => "compare#index"
   # Adds the ID of the camp you want to compare to `session[:cart]`
-  post "/camps/compare/:id" => "camps#add_to_compare"
-
+  # post "/camps/compare/:id" => "camps#add_to_compare"
+  # post "/remove_from_cart/:id" => "camps#remove_from_cart", as: "remove_from_cart"
+  
   # Example of regular route:
-  get "show" => "camps#show"
+  # get "show" => "camps#show"
    # get "application" => "camps#show"
-  get "/search" => "camps#search"
+  
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

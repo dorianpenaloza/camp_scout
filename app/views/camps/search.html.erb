@@ -1,7 +1,18 @@
+  
+ <section id="home" data-speed="4" data-type="background">
+  <h1 class="navbar-brand text-center"><%= link_to 'CampScout', root_path %></h1><br>
+  <div style='width: 95%; margin: 0 auto;'>
+    <div id="map" class="google-maps" style='width: 95%; height: 600px; margin: 0 auto; border-radius: 20px 20px;'>
+  <%= render "gmap" %>
+    </div>
+  </div>
+  <div class="text-center"><%= render "/layouts/search_bar" %></div>
+
+
 <div class="col-md-10 col-md-offset-1">
-  <h2>
+  <h3>
     <%= "Camps near #{params[:search].titleize}" %>
-  </h2>
+  </h3>
   <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -25,3 +36,4 @@
     </tbody>
   </table>
 </div>
+</section>

@@ -1,0 +1,184 @@
+
+.effects {
+  padding-left: 15px;
+}
+.effects .img {
+  position: relative;
+  float: left;
+  margin-bottom: 5px;
+  width: 25%;
+  overflow: hidden;
+}
+.effects .img:nth-child(n) {
+  margin-right: 5px;
+}
+.effects .img:first-child {
+  margin-left: -15px;
+}
+.effects .img:last-child {
+  margin-right: 0;
+}
+.effects .img img {
+
+  border-radius: 150px;
+}
+
+.overlay {
+	display: block;
+	position: absolute;
+	z-index: 20;
+	background: rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	border-radius: 150px;
+	max-width: 198px;
+	max-height: 191px;
+}
+
+
+a.expand {
+	display: block;
+	position: absolute;
+	z-index: 100;
+	width: 50px;
+	height: 50px;
+	}
+	
+a.expand2 {
+	display: block;
+	position: absolute;
+	z-index: 100;
+	width: 60px;
+	height: 60px;
+
+	}
+	
+a.expand3 {
+	display: block;
+	position: absolute;
+	z-index: 100;
+	width: 60px;
+	height: 60px;
+
+	}
+/*
+  EFFECT - ICON BOUNCE IN
+============================================================ */
+
+#effect-6 .overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+
+#effect-6 .overlay a.expand3 {
+	left: 0;
+	right: 110px;
+	top: 0;
+	margin: 0 auto;
+	opacity: 0;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+#effect-6 .overlay a.expand {
+	left: 10px;
+	right: 0;
+	top: 0;
+	margin: 0 auto;
+	opacity: 0;
+	-webkit-transition: all 0.7s;
+	-moz-transition: all 0.7s;
+	-o-transition: all 0.7s;
+	transition: all 0.7s;
+}
+
+#effect-6 .overlay a.expand2 {
+	left: 145px;
+	right: 0;
+	top: 0;
+	margin: 0 auto;
+	opacity: 0;
+	-webkit-transition: all 0.9s;
+	-moz-transition: all 0.9s;
+	-o-transition: all 0.9s;
+	transition: all 0.9s;
+}
+
+
+#effect-6 .img.hover .overlay {
+  opacity: 1;
+}
+#effect-6 .img.hover .overlay a.expand {
+  top: 50%;
+  margin-top: -30px;
+  opacity: 1;
+}
+
+#effect-6 .img.hover .overlay a.expand2 {
+  top: 50%;
+  margin-top: -30px;
+  opacity: 1;
+}
+
+#effect-6 .img.hover .overlay a.expand3 {
+  top: 50%;
+  margin-top: -30px;
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+|* Media Queries
+--- */
+@media only screen and (max-width: 1100px) {
+  .effects {
+    padding-left: 5px;
+  }
+  .effects .img {
+    width: 50%;
+  }
+  .effects .img:nth-child(n) {
+    margin-right: 5px;
+  }
+  .effects .img:first-child {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n-1) {
+    margin-left: -5px;
+  }
+  .effects .img:nth-child(2n) {
+    margin-right: 0;
+  }
+  .effects .img:last-child {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .effects .img {
+    width: 100%;
+  }
+  .effects .img:nth-child(n) {
+    margin-right: 0;
+  }
+  .effects .img:first-child {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n-1) {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n) {
+    margin-right: 0;
+  }
+  .effects .img:last-child {
+    margin-right: 0;
+  }
+  .effects .img img {
+    margin: 0 auto;
+  }
+}
