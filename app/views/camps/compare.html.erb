@@ -1,7 +1,7 @@
 <section id="home" data-speed="4" data-type="background">
   <h1 class="navbar-brand text-center"><%= link_to 'CampScout', root_path %></h1><br>
   <div style='width: 95%; margin: 0 auto;'>
-    <div id="map" class="google-maps" style='width: 95%; height: 600px; margin: 0 auto; border-radius: 20px 20px;'>
+    <div id="map" class="google-maps">
   <%= render "gmap" %>
     </div>
   </div>
@@ -36,12 +36,16 @@
           <%= submit_tag "Remove" %>
           <% end %>
         </td>   
+        <td>
+         <%= form_tag(action: "empty_cart") do %>
+    <%= submit_tag "Remove All" %>
+  <% end %>
+</td>
     </tr>
+
     <% end %>
   </tbody>
   </table>  
-  <%= form_tag(action: "empty_cart") do %>
-    <%= submit_tag "Remove" %>
-  <% end %>
+  
 </div>
 

@@ -1,52 +1,44 @@
 
   <section id="home" data-speed="4" data-type="background">
-  <h1 class="navbar-brand text-center"><%= link_to 'CampScout', root_path %></h1><br>
+   <h1 class="text-center"><%= link_to 'Camp Scout', root_path %></h1><br>
   <div style='width: 95%; margin: 0 auto;'>
-    <div id="map" class="google-maps" style='width: 95%; height: 600px; margin: 0 auto; border-radius: 20px 20px;'>
+    <div id="map" class="google-maps">
   <%= render "gmap" %>
     </div>
   </div>
   <div class="text-center"><%= render "/layouts/search_bar" %></div>
 
 <div class="container">
-  <table class="row-fluid table table-striped table-hover">
- <thead>
+
+<table class="table table-hover">
     <tr>
-      <th class="col-md-1">Name</th>
-      <th class="col-md-1">Weeks</th>
-      <th class="col-md-1">Cost</th>
-      <th class="col-md-1">Telephone</th>
-      <th class="col-md-1">Website</th>
-      <th class="col-md-1">Address</th>
- 
+      <th >Name</th><td ><p><%= @camp.name %></p></td>
     </tr>
-  </thead>
-
-<tbody>
-<tr>
-<td class="col-md-1"><p><strong>Name:</strong><%= @camp.name %></p></td>
-
-<td class="col-md-1"><p><strong>Weeks:</strong><%= @camp.weeks %></p></td>
-
-<td class="col-md-1"><p><strong>Cost:</strong><%= @camp.cost %></p></td>
-
-<td class="col-md-1"><p><strong>Telephone:</strong>
-<a href=tel:<%= @camp.telephone %> name=tel:<%= @camp.telephone %> > <%= @camp.telephone %></a>
-</p></td>
-
-<td class="col-md-1"><p><strong>Website:</strong><a href=<%= @camp.website %> ><%= @camp.website %></a></p></td>
-
-<td class="col-md-1"><p><strong>Address:</strong><%= @camp.address %></p></td>
-</tr>
-</tbody>
+    <tr>
+      <th >Weeks</th><td ><p><%= @camp.weeks %></p></td>
+    </tr>
+    <tr>
+      <th >Cost</th><td ><p><%= @camp.cost %></p></td>
+    </tr>  
+    <tr>
+      <th >Telephone</th><td ><p>
+      <a href=tel:<%= @camp.telephone %> name=tel:<%= @camp.telephone %> > <%= @camp.telephone %></a>
+      </p></td>
+    </tr>
+    <tr>
+      <th >Website</th><td ><p><a href=<%= @camp.website %> ><%= @camp.website %></a></p></td>
+    </tr>
+    <tr>
+      <th >Address</th><td ><p><%= @camp.address %></p></td>
+    </tr> 
 </table>
+
 </div>
-</div> 
 
 <span class="text-center">
   <%= form_tag compares_path do %>
   <%= hidden_field_tag :id, @camp.id %>
-  <%= submit_tag  "Add to comparison cart" %>
+  <%= submit_tag  "Add to Comparison List", :class => "btn btn-primary" %>
 <% end %>
 </span>
 

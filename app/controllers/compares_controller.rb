@@ -69,7 +69,4 @@ class ComparesController < ApplicationController
     end
 
 
-
-
-
 end

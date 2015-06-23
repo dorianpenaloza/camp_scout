@@ -1,18 +1,19 @@
 <section id="home" data-speed="4" data-type="background">
-  <h1 class="navbar-brand text-center"><%= link_to 'CampScout', root_path %></h1><br>
+  
+   <h1 class="text-center"><%= link_to 'Camp Scout', root_path %></h1><br>
   <div style='width: 95%; margin: 0 auto;'>
-    <div id="map" class="google-maps" style='width: 95%; height: 600px; margin: 0 auto; border-radius: 20px 20px;'>
+    <div id="map" class="google-maps">
   <%= render "camps/gmap" %>
     </div>
   </div>
   <div class="text-center"><%= render "/layouts/search_bar" %></div>
-</section>
 
+<div class="container">
 
 <div class="col-md-10 col-md-offset-1">
-  <h2>
+  <h3>
   	Comparison List
-  </h2>
+  </h3>
   <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -25,24 +26,20 @@
 
  <tbody>
   <% @cart.camps.each do |camp| %>
-    <tr>      
-        <td><%= camp.name %></td>
+    <tr>       
+        <td><%= link_to camp.name, camp_path(camp), method: "get" %></td>
         <td><%= camp.weeks %></td>
         <td><%= camp.cost %></td>
-        <td><%#= link_to 'Destroy' camp action: "destroy" %></td>
-        <td>
-          <%= link_to 'Destroy', compare_path(camp.id), method: :delete %>
-          <%#= form_tag(action: "destroy") do %>
-          <%#= hidden_field :camp_id, value: camp.id %>
-          <%#= submit_tag "Remove" %>
-          <%# end %>
-        </td>   
+        <td><%= link_to 'Remove', compare_path(camp.id), method: :delete, :class => "pull-right btn btn-default" %> </td>   
     </tr>
     <% end %>
   </tbody>
   </table>  
-  <%#= form_tag(action: "empty_cart") do %>
-    <%#= submit_tag "Remove" %>
-  <%# end %>
-</div>
 
+  <%= form_tag(action: "drop") do %>
+    <%= submit_tag "Remove All", :class => "pull-right btn btn-danger" %>
+  <% end %>
+
+</div>
+</div>
+</section>
