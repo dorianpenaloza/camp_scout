@@ -1,51 +1,50 @@
 <section id="home" data-speed="4" data-type="background">
   <h1 class="navbar-brand text-center"><%= link_to 'CampScout', root_path %></h1><br>
   <div style='width: 95%; margin: 0 auto;'>
-    <div id="map" class="google-maps">
-  <%= render "gmap" %>
-    </div>
+    <div id="map" class="google-maps"><%= render "gmap" %></div>
   </div>
   <div class="text-center"><%= render "/layouts/search_bar" %></div>
-</section>
 
+<h2>
+    Comparison List
+</h2>
 
-<div class="col-md-10 col-md-offset-1">
-  <h2>
-  	Comparison List
-  </h2>
-  <table class="table table-striped table-hover">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Weeks</th>
-      <th>Cost</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="table-responsive">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table table-striped table-hover">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Weeks</th>
+            <th>Cost</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
- <tbody>
-  <% @cart.camps.each do |camp| %>
-    <tr>      
-        <td><%= camp.name %></td>
-        <td><%= camp.weeks %></td>
-        <td><%= camp.cost %></td>
-        <td><%#= link_to 'Destroy' camp action: "destroy" %></td>
-        <td>
-          <%= form_tag(action: "remove_from_cart") do %>
-          <%= hidden_field :camp_id, value: camp.id %>
-          <%= submit_tag "Remove" %>
-          <% end %>
-        </td>   
-        <td>
-         <%= form_tag(action: "empty_cart") do %>
-    <%= submit_tag "Remove All" %>
-  <% end %>
-</td>
-    </tr>
-
-    <% end %>
-  </tbody>
-  </table>  
-  
+         <tbody>
+          <% @cart.camps.each do |camp| %>
+            <tr>      
+              <td><%= camp.name %></td>
+              <td><%= camp.weeks %></td>
+              <td><%= camp.cost %></td>
+              <td>
+                <%= form_tag(action: "remove_from_cart") do %>
+                <%= hidden_field :camp_id, value: camp.id %>
+                <%= submit_tag "Remove" %>
+                <% end %>
+              </td>   
+              <td>
+                <%= form_tag(action: "empty_cart") do %>
+                <%= submit_tag "Remove All" %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>  
+      </div>
+    </div>
+  </div>
 </div>
-
+</section>
