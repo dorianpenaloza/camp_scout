@@ -112,6 +112,7 @@ private
   # sets up the map hash for gmaps4rails
   def gmap(camps)
     @camps = camps
+    
     @hash = Gmaps4rails.build_markers(@camps) do |camp, marker|
         marker.lat camp.latitude
         marker.lng camp.longitude
