@@ -3,6 +3,7 @@
  h1 {color: white; font-size: 4em; text-shadow: 0 2px 3px rgba(0,0,0,.4);}
  h2 {color: rgb(137,192,199); text-shadow: 0 2px 3px rgba(0,0,0,.4);}
  h3 {color: rgb(242,102,81);}
+ h4 {color: white; text-align: right;}
  a:hover {text-decoration: none;}
  .top-buffer {margin-top:50px;}
 .table {background-color:white; -webkit-border-radius: 10px;}

@@ -1,6 +1,8 @@
+#hoverdiv {width: 200px; border-radius: 150px;}
 
 .effects {
   padding-left: 15px;
+  float:left
 }
 .effects .img {
   position: relative;

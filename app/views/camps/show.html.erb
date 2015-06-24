@@ -8,7 +8,7 @@
   </div>
   <div class="text-center"><%= render "/layouts/search_bar" %></div>
 
-<div class="container">
+<div class="container table-responsive ">
 
 <table class="table table-hover">
     <tr>
@@ -26,7 +26,7 @@
       </p></td>
     </tr>
     <tr>
-      <th >Website</th><td ><p><a href=<%= @camp.website %> ><%= @camp.website %></a></p></td>
+      <th >Website</th><td ><p><a href=<%= @camp.website %> target="new"><%= @camp.website %></a></p></td>
     </tr>
     <tr>
       <th >Address</th><td ><p><%= @camp.address %></p></td>
