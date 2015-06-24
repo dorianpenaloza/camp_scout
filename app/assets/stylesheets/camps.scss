@@ -34,3 +34,9 @@
 		}
 		
 		.parallax-section {position: static !important;}
+
+@media handheld, only screen and (max-width: 640px) {
+html, body{
+background: rgb(225,163,163);
+    }
+}
