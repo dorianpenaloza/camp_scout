@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-		#intro { 
+		#intro {
+			background-color: rgb(225,163,163); 
 			background: url(/images/bg1.jpg) 100% 100% fixed no-repeat; 
 			height: auto;  
 			margin: 0 auto; 
@@ -12,6 +13,7 @@
 		    padding: 250px 0;
 		}
 		#home { 
+			background-color: rgb(227,255,254);
 			background: url(/images/bg2.jpg) 50% 0 fixed no-repeat; 
 			height: auto;  
 			margin: 0 auto; 
@@ -21,6 +23,7 @@
 		    padding: 100px 0;
 		}
 		#about { 
+			background-color: rgb(225,163,163);
 			background: url(/images/bg1.jpg) 100% 15% fixed no-repeat; 
 			height: auto;  
 			margin: 0 auto; 
