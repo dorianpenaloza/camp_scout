@@ -1,45 +1,41 @@
-<section id="home" data-speed="4" data-type="background">
-  
-   <h1 class="text-center"><%= link_to 'Camp Scout', root_path %></h1><br>
-  <div style='width: 95%; margin: 0 auto;'>
-    <div id="map" class="google-maps">
-  <%= render "camps/gmap" %>
+<body id="table-body">
+<section id="table">
+ <h1 class="text-center"><%= link_to 'Camp Scout', root_path %></h1><br>
+  <div class="container"> 
+    <div class="table-responsive">
+      <div class="col-md-10 col-md-offset-1"><h3>Comparison List</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Weeks</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+           <tbody>
+            <% @cart.camps.each do |camp| %>
+              <tr>       
+                  <td><%= link_to camp.name, camp_path(camp), method: "get" %></td>
+                  <td><%= camp.weeks %></td>
+                  <td><%= camp.cost %></td>
+                  <td><%= link_to 'Remove', compare_path(camp.id), method: :delete, :class => "pull-right btn btn-default" %></td>
+              </tr>
+              <% end %>
+            </tbody>
+        </table>  
+                  <%= form_tag(action: "drop") do %>
+                    <%= submit_tag "Remove All", :class => "pull-right btn btn-danger" %>
+                  <% end %>
+      </div>
     </div>
   </div>
-  <div class="text-center"><%= render "/layouts/search_bar" %></div>
-
-<div class="container">
-
-<div class="col-md-10 col-md-offset-1 table-responsive">
-  <h3>
-  	Comparison List
-  </h3>
-  <table class="table table-striped table-hover">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Weeks</th>
-      <th>Cost</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
- <tbody>
-  <% @cart.camps.each do |camp| %>
-    <tr>       
-        <td><%= link_to camp.name, camp_path(camp), method: "get" %></td>
-        <td><%= camp.weeks %></td>
-        <td><%= camp.cost %></td>
-        <td><%= link_to 'Remove', compare_path(camp.id), method: :delete, :class => "pull-right btn btn-default" %> </td>   
-    </tr>
-    <% end %>
-  </tbody>
-  </table>  
-
-  <%= form_tag(action: "drop") do %>
-    <%= submit_tag "Remove All", :class => "pull-right btn btn-danger" %>
-  <% end %>
-
-</div>
-</div>
 </section>
+    <%= render "/layouts/search_bar" %>
+<section id="gmap">
+  <div style='width: 95%; margin: 0 auto;'>
+    <div id="map" class="google-maps">
+      <%= render "camps/gmap" %>
+    </div>
+  </div>
+</section>
+<body>

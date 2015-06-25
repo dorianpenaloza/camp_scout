@@ -2,38 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-		#intro {
-			background-color: rgb(225,163,163); 
-			background: url(/images/bg1.jpg) no-repeat fixed center; 
-			background-size:cover;
-			min-height:100%;  
-			width: 100%;
-			margin: 0 auto;  
-		    position: relative; 
-		    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-		    padding: 250px 0;
-		}
-		#home { 
-			background-color: rgb(227,255,254);
-			background: url(/images/bg2.jpg) no-repeat fixed center; 
-			background-size:cover;
-			min-height:100%;  
-			width: 100%;
-			margin: 0 auto;  
-		    position: relative; 
-		    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-		    padding: 100px 0;
-		}
-		#about { 
-			background-color: rgb(225,163,163);
-			background: url(/images/bg1.jpg) no-repeat fixed center; 
-			background-size:cover;
-			min-height:100%;  
-			width: 100%;
-			margin: 0 auto;  
-		    position: relative; 
-		    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-		    padding: 20px 0;
-		}
-		
-		.parallax-section {position: static !important;}
+
+
+ /* index page begin */
+#intro {
+	background-color: rgb(225,163,163); 
+	background: url(/images/bg1.jpg) no-repeat fixed center; 
+	background-size:cover;
+	min-height:100%;  
+	width: 100%;
+	margin: 0 auto;  
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 250px 0;
+}
+#body { 
+	background: url(/images/bg2.jpg) no-repeat fixed center; 
+	background-size:cover;
+	width: 100%;
+	margin: 0 auto;  
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 400px 0;
+}
+#about { 
+	background-color: rgb(225,163,163);
+	background: url(/images/bg1.jpg) no-repeat fixed center; 
+	background-size:cover;
+	min-height:100%;  
+	width: 100%;
+	margin: 0 auto;  
+    position: relative; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 20px 0;
+}
+.searchbar-overlay-body {
+	margin: -408px 0px;
+	position: relative;
+  	z-index:2;
+}
+.parallax-section {position: static !important;}
+ /* index page end */
+
+
+ /* search, show, compare page begin */
+#table { 
+	min-height:100%;  
+	width: 100%;
+	margin: 0 auto;  
+    position: relative;
+    padding: 20px 0;
+}
+#table-body {
+	background: url(/images/bg2.jpg) no-repeat fixed center; 
+	background-size:cover;
+}
+#gmap { 
+	width: 100%;
+	margin: 0 auto;  
+    position: relative;
+    padding: 210px 0;
+}
+ /* search, show, compare page end */
+

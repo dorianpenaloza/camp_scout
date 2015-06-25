@@ -1,11 +1,6 @@
-<section id="home" data-speed="4" data-type="background">
+<body id="table-body">
+<section id="table">
    <h1 class="text-center"><%= link_to 'Camp Scout', root_path %></h1>
-   <br>
-    <div style='width: 95%; margin: 0 auto;'>
-      <div id="map" class="google-maps"><%= render "gmap" %></div>
-    </div>
-  <div class="text-center"><%= render "/layouts/search_bar" %></div>
-
   <div class="container">
     <div class="table-responsive">
       <table class="table table-striped">
@@ -33,14 +28,18 @@
             <th>Address</th>
             <td><%= @camp.address %></td>
           </tr> 
-      </table>
-    </div>
+      </table> 
+            <%= form_tag compares_path do %>
+              <%= hidden_field_tag :id, @camp.id %>
+              <%= submit_tag  "Add to Comparison List", :class => "btn btn-primary" %>
+            <% end %>
+    </div>      
   </div>
-
-  <span class="text-center">
-    <%= form_tag compares_path do %>
-    <%= hidden_field_tag :id, @camp.id %>
-    <%= submit_tag  "Add to Comparison List", :class => "btn btn-primary" %>
-  <% end %>
-  </span>
 </section>
+<%= render "/layouts/search_bar" %>
+<section id="gmap">
+    <div style='width: 95%; margin: 0 auto;'>
+      <div id="map" class="google-maps"><%= render "gmap" %></div>
+    </div>
+</section>
+</body>

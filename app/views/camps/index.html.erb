@@ -23,19 +23,20 @@
         </div>
         </div>
     </div>
+    
 </section>
-
 	<!-- Section #2 -->
-	<section id="home">
+<section id="body">
     <a name="search."></a>
-    <h3 class="text-center" style="font-size:3em"> Search </h3> 
-	<div style='width: 95%; margin: 0 auto;'>
-  	<div id="map" class="google-maps">
-	<%= render "gmap" %>
-  	</div>
+	<div class="searchbar-overlay-body">
+        <%= render "/layouts/search_bar" %>
+    </div>
+    <div style='width: 95%; margin: 0 auto;'>
+      	<div id="map" class="google-maps">
+    	   <%= render "gmap" %>
+      	</div>
 	</div>
- 	<div class="text-center"><%= render "/layouts/search_bar" %></div>
-	</section>
+</section>
 
 <!-- Section #3 -->
 <section id="about" class="parallax-section">

@@ -1,11 +1,7 @@
-<section id="home" data-speed="4" data-type="background">
+<body id="table-body">
+<section id="table">
   <h1 class="text-center"><%= link_to 'Camp Scout', root_path %></h1><br>
-  <div style='width: 95%; margin: 0 auto;'>
-    <div id="map" class="google-maps"><%= render "gmap" %></div>
-  </div>
-  <div class="text-center"><%= render "/layouts/search_bar" %></div>
-  
-  <div class="container">
+  <div class="container search-table">
     <div class="table-responsive">
       <div class="col-md-10 col-md-offset-1">
           <h3><%= "Camps near #{params[:search].titleize}" %></h3>
@@ -13,8 +9,6 @@
           <thead>
           <tr>
             <th>Name</th>
-            <th>Weeks</th>
-            <th>Cost</th>
             <th>Distance</th>
           </tr>
         </thead>
@@ -22,8 +16,6 @@
             <% @camps.each do |f| %>
               <tr>
                 <td><%= link_to f.name, camp_path(f), method: "get" %></td>
-                <td><%= f.weeks %></td>
-                <td><%= f.cost %></td>
                 <td><strong><%= f.distance.round(2) %></strong><%= "miles" %></td>
               </tr>
             <% end %>
@@ -31,5 +23,12 @@
         </table>
       </div>
     </div>
+  </div> 
+<%= render "/layouts/search_bar" %>
+</section>
+<section id="gmap">
+  <div style='width: 95%; margin: 0 auto;'>
+    <div id="map" class="google-maps"><%= render "gmap" %></div>
   </div>
 </section>
+</body>

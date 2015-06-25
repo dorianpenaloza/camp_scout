@@ -7,8 +7,11 @@
  a:hover {text-decoration: none;}
  .top-buffer {margin-top:50px;}
 .table {background-color:white; -webkit-border-radius: 10px;}
-.google-maps {	box-shadow: 0 5px 5px rgba(0,0,0,.4);
-				width: 90%; 
-				height: 600px; 
-				margin: 0 auto; 
-				-webkit-border-radius: 20px 20px;}
+.google-maps {	
+	width: 95%; 
+	height: 100%; 
+	margin: 0 auto;
+	position: absolute;
+	top:0;
+	z-index:1;
+}
