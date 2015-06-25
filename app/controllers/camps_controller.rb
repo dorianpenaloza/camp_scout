@@ -68,10 +68,6 @@ class CampsController < ApplicationController
   def destroy
     @cart = Cart.find(session[:cart])
     @cart.camps.destroy
-    #respond_to do |format|
-     # format.html { redirect_to camps_url, notice: 'Camp was successfully destroyed.' }
-      #format.json { head :no_content }
-    #end
   end
 
 def search
@@ -80,15 +76,12 @@ def search
     @camps = Camp.near(@location, @distance)
 
     if @location.empty?
-     # gflash notice: "You can't search without a search term; please enter a location and retry!"
       redirect_to "/"
     else
       if @camps.length < 1
-       # gflash notice: "Sorry! We couldn't find any farms within #{@distance} miles of #{@location}."
         redirect_to "/"
       else
         gmap(@camps)
-        #create_markers
       end
     end
   end
