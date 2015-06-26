@@ -1,0 +1,55 @@
+<div class="container">
+	<div class="page-header">
+		<h3 style="color: white">About this web application</h3>
+	</div>
+<!-- hover html -->        
+<div id="effect-6" class="effects clearfix">
+<div id="hoverdiv" class="img">
+    <img src="/images/profile.png" alt="profile">
+    <div class="overlay">
+        <a href="mailto:dorianpenaloza@yahoo.com" target="new" class="expand2">
+        <img src="/images/email_trans.png" width="40" height="40" alt=""/> </a>
+        <a href="https://www.linkedin.com/pub/dorian-penaloza/7b/11a/a17" target="new" class="expand">
+        <img src="/images/linkedin_trans.png" width="40" height="40" alt=""/> </a>
+        <a href="https://github.com/dorianpenaloza" target="new" class="expand3">
+        <img src="/images/github_trans.png" width="40" height="40" alt=""/></a>
+    </div>
+</div>
+</div> 
+<h4> CampScout was built using the Model View Controller principle. It uses Ruby-on-Rails as it's framework.</h4>
+<h4>The <a style="color:#f65" href="https://github.com/apneadiving/Google-Maps-for-Rails">gmaps4rails</a> gem was used to display the map and <a style="color:#9cc" href="https://developers.google.com/maps/documentation/geocoding/">Google's Geocoding API</a> allowed for addresses to be converted into geographic coordinates in order to display them as markers.<br>
+The search field uses a form to pass a city or zipcode along with a distance parameter and returns a hash that gmaps4rails uses to build the markers.  
+</h4>
+<h4>The comparison function accepts a bootcamps information and passes it through a session parameter that was used to display the collected information on a comaparison page. If you are interested in building something similiar or would like to learn more about this project please feel free to contact me.<br><h4 style="color:#aaa">&copy; Dorian Penaloza<h4></4>
+</div>
+<script>
+$(document).ready(function(){
+    if (Modernizr.touch) {
+        // show the close overlay button
+        $(".close-overlay").removeClass("hidden");
+        // handle the adding of hover class when clicked
+        $(".img").click(function(e){
+            if (!$(this).hasClass("hover")) {
+                $(this).addClass("hover");
+            }
+        });
+        // handle the closing of the overlay
+        $(".close-overlay").click(function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            if ($(this).closest(".img").hasClass("hover")) {
+                $(this).closest(".img").removeClass("hover");
+            }
+        });
+    } else {
+        // handle the mouseenter functionality
+        $(".img").mouseenter(function(){
+            $(this).addClass("hover");
+        })
+        // handle the mouseleave functionality
+        .mouseleave(function(){
+            $(this).removeClass("hover");
+        });
+    }
+});
+</script>
