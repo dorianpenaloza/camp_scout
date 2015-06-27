@@ -24,51 +24,51 @@ class CampsController < ApplicationController
         end
   end
 
-  # GET /camps/new
-  def new
-    @camp = Camp.new
-  end
+  #GET /camps/new
+#  def new
+#    @camp = Camp.new
+#  end
 
-  # GET /camps/1/edit
-  def edit
-  end
+  #GET /camps/1/edit
+#  def edit
+#  end
 
   # POST /camps
   # POST /camps.json
-  def create
-    @camp = Camp.new(camp_params)
+#  def create
+#    @camp = Camp.new(camp_params)
 
-    respond_to do |format|
-      if @camp.save
-        format.html { redirect_to @camp, notice: 'Camp was successfully created.' }
-        format.json { render :show, status: :created, location: @camp }
-      else
-        format.html { render :new }
-        format.json { render json: @camp.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+#    respond_to do |format|
+#      if @camp.save
+#        format.html { redirect_to @camp, notice: 'Camp was successfully created.' }
+#        format.json { render :show, status: :created, location: @camp }
+#      else
+#        format.html { render :new }
+#        format.json { render json: @camp.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
   # PATCH/PUT /camps/1
   # PATCH/PUT /camps/1.json
-  def update
-    respond_to do |format|
-      if @camp.update(camp_params)
-        format.html { redirect_to @camp, notice: 'Camp was successfully updated.' }
-        format.json { render :show, status: :ok, location: @camp }
-      else
-        format.html { render :edit }
-        format.json { render json: @camp.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+#  def update
+#    respond_to do |format|
+#      if @camp.update(camp_params)
+#        format.html { redirect_to @camp, notice: 'Camp was successfully updated.' }
+#        format.json { render :show, status: :ok, location: @camp }
+#      else
+#        format.html { render :edit }
+#        format.json { render json: @camp.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
   # DELETE /camps/1
   # DELETE /camps/1.json
-  def destroy
-    @cart = Cart.find(session[:cart])
-    @cart.camps.destroy
-  end
+#  def destroy
+#    @cart = Cart.find(session[:cart])
+#    @cart.camps.destroy
+#  end
 
 def search
     @location = params[:search]
