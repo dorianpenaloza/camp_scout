@@ -9,6 +9,9 @@
 	background-color: rgb(225,163,163); 
 	background: url(/images/bg1.jpg) no-repeat fixed center; 
 	background-size:cover;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	-o-background-size: cover;
 	min-height:100%;  
 	width: 100%;
 	margin: 0 auto;  
@@ -19,25 +22,34 @@
 .container-head {
 	margin-top: -200px;
 }
-
 @media only screen and (max-width: 767px) {
-	.container-head {
-	  margin-top: -400px;
-	}
+	.container-head {margin-top: -400px;}
 }
+
 #body { 
 	background: url(/images/bg2.jpg) no-repeat fixed center; 
 	background-size:cover;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	-o-background-size: cover;
 	width: 100%;
 	margin: 0 auto;  
     position: relative; 
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
     padding: 550px 0;
 }
+@media only screen and (max-width: 767px) {
+	#body {padding: 250px 0;}
+
+}
+
 #about { 
 	background-color: rgb(225,163,163);
 	background: url(/images/bg1.jpg) no-repeat fixed center; 
 	background-size:cover;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	-o-background-size: cover;
 	min-height:100%;  
 	width: 100%;
 	margin: 0 auto;  
@@ -45,11 +57,19 @@
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
     padding: 20px 0;
 }
+
 .searchbar-overlay-body {
 	margin: -550px 0px;
 	position: relative;
   	z-index:2;
 }
+@media only screen and (max-width: 767px) {
+	.searchbar-overlay-body {
+	margin: -260px 0px;
+	position: relative;
+  	z-index:2;}
+}
+
 .parallax-section {position: static !important;}
  /* index page end */
 
@@ -67,7 +87,7 @@
 	background-size:cover;
 }
 #gmap { 
-	width: 100%;
+	width: 95%;
 	margin: 0 auto;  
     position: relative;
     padding: 210px 0;
