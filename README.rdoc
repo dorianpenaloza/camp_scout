@@ -1,3 +1,17 @@
 == README
 
-Camp scout rails app using Google's geocode api
+
+CampScout was built with the principles of Model,
+View, Controller and uses Ruby-on-Rails as it's main framework.
+
+The <a style="color:#f65" href="https://github.com/apneadiving/Google-Maps-for-Rails">gmaps4rails</a> gem was used to display the maps and <a style="color:#9cc" href="https://developers.google.com/maps/documentation/geocoding/">Google's Geocoding API</a> allowed for addresses to be converted into geographic coordinates in order to display them as markers.
+
+The search field uses a form to pass a city/zip code input along with a distance parameter and returns a hash that gmaps4rails uses to render the markers.
+
+The comparison function accepts a camp’s information (id) and pushes it through a session array. This array is used to display the collected information on a filtered comparison page. 
+
+If you are interested in building something similar or would like to learn more about this project please feel free to reach out.
+
+Special thanks to https://github.com/walterlatimer and https://github.com/thejuliekramer for your time and help.
+I also want to thank https://github.com/EldonYoder for helping me with the Google Maps API.
+
