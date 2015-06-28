@@ -4,10 +4,10 @@ CampScout was built with the principles of Model,
 View, Controller and uses Ruby-on-Rails as it's main framework.
 
 The gmaps4rails gem was used to display the maps 
-github.com/apneadiving/Google-Maps-for-Rails
+https://github.com/apneadiving/Google-Maps-for-Rails
 
 Google's Geocoding API allowed for addresses to be converted into geographic coordinates in order to display them as markers.
-developers.google.com/maps/documentation/geocoding/
+https://developers.google.com/maps/documentation/geocoding/
 
 The search field uses a form to pass a city/zip code input along with a distance parameter and returns a hash that gmaps4rails uses to render the markers.
 
