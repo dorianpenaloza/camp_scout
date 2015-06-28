@@ -1,5 +1,5 @@
 class CampsController < ApplicationController
-  before_action :set_camp, only: [:show, :edit, :update, :destroy]
+  before_action :set_camp, only: [:show,] #:edit, :update, :destroy]
 
   # GET /camps
   # GET /camps.json
